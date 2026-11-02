@@ -26,7 +26,7 @@ Why is variance measured after a Möbius shift? In raw ball coordinates the same
 The prior answers a question the embedding cannot: given who these support patients are, how widely should lesions like theirs be expected to vary? 
 
 Figure 1 illustrates the proposed Metadata-Conditioned Shrinkage Priors for Hyperbolic Prototypical Few-Shot Skin Lesion Classification model. 
-![Figure 1. Model Architecture](model.png)
+<img width="960" height="540" alt="Architecture" src="https://github.com/user-attachments/assets/a2a0e565-6fdf-4a9c-bd0f-dada74588c20" />
 
 ### 3. Dataset
 Two publicly available skin lesion dataset namely PAD-UFES-20 and HAM10000 have been used. Each image is resized to 224×224 without cropping and encoded under six dihedral views: the identity, horizontal and vertical flips, and rotations by 90°, 180° and 270°. Because both backbones CLIP and DINOv2 are frozen, the features of all six views are computed once and cached. During training, each sampled image uses one view drawn uniformly at random; evaluation uses the identity view only.
@@ -53,5 +53,6 @@ The trainable model has 4.17 M parameters on top of two frozen backbones. Hyperp
 ### 5. Results
 The proposed model reports test accuracy of 75.17% on PAD-UFES-20 dataset and 78.62% on HAM10000 dataset under 5-shot setting. 
 Embeddings of the PAD-UFES-20 test images (image + metadata) from the proposed model is shown in the figure below. (a) The Poincaré ball at true scale; the solid circle is the boundary ‖x‖ = 1, the dashed circle the soft bound tanh 2 ≈ 0.964, and stars are the class Einstein midpoints. (b) Zoom on the occupied region: the radius of each point is exact; its angle is a 2-D principal component projection of log₀(x), so angles are approximate. (c) t-SNE computed on exact pairwise Poincaré distances. Silhouette score on Poincaré distances: 0.28 for the six classes, 0.29 for benign/malignant.
-![Figure 2. Visualisation on PAD-UFES-20](result.png)
+<img width="4168" height="1623" alt="poincare_tsne_test_text_class" src="https://github.com/user-attachments/assets/ecb723bd-e284-4453-b9cf-466f236b26bf" />
+
 
