@@ -1,4 +1,4 @@
-<img width="4168" height="1623" alt="poincare_tsne_test_text_class" src="https://github.com/user-attachments/assets/2290e213-3a8b-4005-9328-758de2dcc5bb" />### Title - "GINI-informed and Metadata-conditioned variance priors for Hyperbolic Few-Shot Skin Lesion Classification"
+### Title - "GINI-informed and Metadata-conditioned variance priors for Hyperbolic Few-Shot Skin Lesion Classification"
 
 ### Contents
 1. [The Problem Statement](#1-the-problem)
