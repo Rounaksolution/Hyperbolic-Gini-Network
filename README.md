@@ -25,8 +25,8 @@ Why is variance measured after a Möbius shift? In raw ball coordinates the same
 **The metadata-conditioned variance prior**
 The prior answers a question the embedding cannot: given who these support patients are, how widely should lesions like theirs be expected to vary? 
 
-Figure 1 illustrates the proposed Metadata-Conditioned Shrinkage Priors for Hyperbolic Prototypical Few-Shot Skin Lesion Classification model. 
-[model.pdf](https://github.com/user-attachments/files/34273871/model.pdf)
+Figure below illustrates the proposed Metadata-Conditioned Shrinkage Priors for Hyperbolic Prototypical Few-Shot Skin Lesion Classification model. 
+<iframe src="model.pdf" width="100%" height="600px"></iframe>
 
 
 
