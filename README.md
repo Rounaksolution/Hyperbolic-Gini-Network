@@ -1,4 +1,4 @@
-### Title - "GINI-informed and Metadata-conditioned variance priors for Hyperbolic Few-Shot Skin Lesion Classification"
+<img width="4168" height="1623" alt="poincare_tsne_test_text_class" src="https://github.com/user-attachments/assets/2290e213-3a8b-4005-9328-758de2dcc5bb" />### Title - "GINI-informed and Metadata-conditioned variance priors for Hyperbolic Few-Shot Skin Lesion Classification"
 
 ### Contents
 1. [The Problem Statement](#1-the-problem)
@@ -26,7 +26,9 @@ Why is variance measured after a Möbius shift? In raw ball coordinates the same
 The prior answers a question the embedding cannot: given who these support patients are, how widely should lesions like theirs be expected to vary? 
 
 Figure 1 illustrates the proposed Metadata-Conditioned Shrinkage Priors for Hyperbolic Prototypical Few-Shot Skin Lesion Classification model. 
-<img width="960" height="540" alt="Architecture" src="https://github.com/user-attachments/assets/a2a0e565-6fdf-4a9c-bd0f-dada74588c20" />
+[model.pdf](https://github.com/user-attachments/files/34273871/model.pdf)
+
+
 
 ### 3. Dataset
 Two publicly available skin lesion dataset namely PAD-UFES-20 and HAM10000 have been used. Each image is resized to 224×224 without cropping and encoded under six dihedral views: the identity, horizontal and vertical flips, and rotations by 90°, 180° and 270°. Because both backbones CLIP and DINOv2 are frozen, the features of all six views are computed once and cached. During training, each sampled image uses one view drawn uniformly at random; evaluation uses the identity view only.
