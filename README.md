@@ -16,11 +16,20 @@ The task is to classify a skin lesion when each class is represented by only K l
 
 ### 2. Methodology
 
-**Why Poincaré ball**
+**Add noise to cached features.** 
+Caching removes the pixel-level randomness that normal augmentation provides; apart from the six views, every training sample would be identical in every epoch. Small Gaussian noise (std 0.05) restores some of that variation at no cost.
+
+**Why gates that start at zero?** 
+The cross-attention layers start from random weights, while the DINOv2 features are already strong. With gates at zero the block is exactly the identity at the start, so random attention cannot corrupt the visual features; the gates open only as far as the loss rewards.
+
+**Poincaré ball.**
 The labels form a tree: root, then benign and malignant, then six/seven diagnoses (and subtypes below those). In hyperbolic space the volume of a ball grows exponentially with its radius, as the number of nodes in a tree grows with depth. Trees therefore embed with very low distortion in a few hyperbolic dimensions, while Euclidean space needs many more dimensions for the same distortion. Superclasses can sit nearer the origin and fine classes towards the boundary. 
 
 **Prototype charts.**
 Why is variance measured after a Möbius shift? In raw ball coordinates the same coordinate step means a larger true distance near the boundary than near the centre. A variance computed there would mix real spread with position in the ball. We first move the prototype to the origin with the isometry h ↦ (−p) ⊕ h, then take the log map. In these coordinates 2‖ξ‖ equals the true hyperbolic distance. The variance is estimated and used in the same chart, so it means the same thing in both places. 
+
+**Why the Einstein midpoint instead of the Euclidean mean?** 
+The Euclidean average of points in the ball is not the hyperbolic center and is pulled towards the origin. The Fréchet mean is the principled center but needs an iterative solver inside every episode. The Einstein midpoint is closed-form, differentiable and the standard choice for hyperbolic prototypes.
 
 **The metadata-conditioned variance prior**
 The prior answers a question the embedding cannot: given who these support patients are, how widely should lesions like theirs be expected to vary? 
