@@ -25,18 +25,17 @@ The cross-attention layers start from random weights, while the DINOv2 features 
 **Poincaré ball.**
 The labels form a tree: root, then benign and malignant, then six/seven diagnoses (and subtypes below those). In hyperbolic space the volume of a ball grows exponentially with its radius, as the number of nodes in a tree grows with depth. Trees therefore embed with very low distortion in a few hyperbolic dimensions, while Euclidean space needs many more dimensions for the same distortion. Superclasses can sit nearer the origin and fine classes towards the boundary. 
 
-**Prototype charts.**
-Why is variance measured after a Möbius shift? In raw ball coordinates the same coordinate step means a larger true distance near the boundary than near the centre. A variance computed there would mix real spread with position in the ball. We first move the prototype to the origin with the isometry h ↦ (−p) ⊕ h, then take the log map. In these coordinates 2‖ξ‖ equals the true hyperbolic distance. The variance is estimated and used in the same chart, so it means the same thing in both places. 
-
 **Why the Einstein midpoint instead of the Euclidean mean?** 
 The Euclidean average of points in the ball is not the hyperbolic center and is pulled towards the origin. The Fréchet mean is the principled center but needs an iterative solver inside every episode. The Einstein midpoint is closed-form, differentiable and the standard choice for hyperbolic prototypes.
 
 **The metadata-conditioned variance prior**
-The prior answers a question the embedding cannot: given who these support patients are, how widely should lesions like theirs be expected to vary? 
+The prior answers a question the embedding cannot: given who these support patients are, how widely should lesions like theirs be expected to vary? Lesions from patients of different ages, skin types and body sites vary more in appearance than lesions from a homogeneous group. A global prior gives every class the same reference spread; a metadata prior lets each episode's reference reflect the patients in its support set. 
+
+**Superclass Logits.** 
+Not all errors are equal clinically. The superclass term adds extra loss exactly when an error crosses the line. The six-way diagnosis remains the primary task; the superclass term is a secondary push. 
 
 Figure below illustrates the proposed Metadata-Conditioned Shrinkage Priors for Hyperbolic Prototypical Few-Shot Skin Lesion Classification model. 
 <img width="1920" height="1080" alt="model" src="https://github.com/user-attachments/assets/eb46c3d0-d6c5-425b-b362-ac13e387f952" />
-
 
 
 ### 3. Dataset
@@ -64,6 +63,18 @@ The trainable model has 4.17 M parameters on top of two frozen backbones. Hyperp
 ### 5. Results
 The proposed model reports test accuracy of 75.17% on PAD-UFES-20 dataset and 78.62% on HAM10000 dataset under 5-shot setting. 
 Embeddings of the PAD-UFES-20 test images (image + metadata) from the proposed model is shown in the figure below. (a) The Poincaré ball at true scale; the solid circle is the boundary ‖x‖ = 1, the dashed circle the soft bound tanh 2 ≈ 0.964, and stars are the class Einstein midpoints. (b) Zoom on the occupied region: the radius of each point is exact; its angle is a 2-D principal component projection of log₀(x), so angles are approximate. (c) t-SNE computed on exact pairwise Poincaré distances. Silhouette score on Poincaré distances: 0.28 for the six classes, 0.29 for benign/malignant.
-<img width="4168" height="1623" alt="poincare_tsne_test_text_class" src="https://github.com/user-attachments/assets/ecb723bd-e284-4453-b9cf-466f236b26bf" />
+Visualisation on 3-shot PAD-UFES-20 dataset.
+<img width="3660" height="1334" alt="poincare_tsne_padufes20" src="https://github.com/user-attachments/assets/2d6ec8ec-18fd-4268-91a6-df4ec9766dfb" />
+
+
+Comparison of few-shot existing work on PAD-UFES-20 dataset. 
+| Paper | Model Description | Accuracy |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
 
 
