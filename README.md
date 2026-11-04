@@ -63,18 +63,20 @@ The trainable model has 4.17 M parameters on top of two frozen backbones. Hyperp
 ### 5. Results
 The proposed model reports test accuracy of 75.17% on PAD-UFES-20 dataset and 78.62% on HAM10000 dataset under 5-shot setting. 
 Embeddings of the PAD-UFES-20 test images (image + metadata) from the proposed model is shown in the figure below. (a) The Poincaré ball at true scale; the solid circle is the boundary ‖x‖ = 1, the dashed circle the soft bound tanh 2 ≈ 0.964, and stars are the class Einstein midpoints. (b) Zoom on the occupied region: the radius of each point is exact; its angle is a 2-D principal component projection of log₀(x), so angles are approximate. (c) t-SNE computed on exact pairwise Poincaré distances. Silhouette score on Poincaré distances: 0.28 for the six classes, 0.29 for benign/malignant.
-Visualisation on 3-shot PAD-UFES-20 dataset.
-<img width="3660" height="1334" alt="poincare_tsne_padufes20" src="https://github.com/user-attachments/assets/2d6ec8ec-18fd-4268-91a6-df4ec9766dfb" />
+Visualisation on PAD-UFES-20 dataset.
+<img width="3990" height="1576" alt="tsne_pad" src="https://github.com/user-attachments/assets/e95227cb-5511-4116-a832-4977fdcb6a7e" />
+
+Visualisation on HAM10000 dataset.
+<img width="3990" height="1576" alt="tsne_ham" src="https://github.com/user-attachments/assets/e4f624ec-017d-4a0f-a1cb-1d52d74e6962" />
 
 
-Comparison of few-shot existing work on PAD-UFES-20 dataset. 
-| Paper | Model Description | Accuracy |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
+Comparison of few-shot existing work on PAD-UFES-20 dataset. All accuracy scores are under 5-shot setting.
+
+
+| Paper | Model | Accuracy |
+|---|---|---|
+| Bateni et al. | Improved Few-Shot Visual Classification |  |
+| Khrulkov et al. | Hyperbolic Image Embeddings |  |
+| Pani et al. | Few-shot multimodal medical image classification | 63.17% |
 
 
