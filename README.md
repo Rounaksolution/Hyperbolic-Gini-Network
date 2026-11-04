@@ -70,13 +70,4 @@ Visualisation on HAM10000 dataset.
 <img width="3990" height="1576" alt="tsne_ham" src="https://github.com/user-attachments/assets/e4f624ec-017d-4a0f-a1cb-1d52d74e6962" />
 
 
-Comparison of few-shot existing work on PAD-UFES-20 dataset. All accuracy scores are under 5-shot setting.
-
-
-| Paper | Model | Accuracy |
-|---|---|---|
-| Bateni et al. | Improved Few-Shot Visual Classification |  |
-| Khrulkov et al. | Hyperbolic Image Embeddings |  |
-| Pani et al. | Few-shot multimodal medical image classification | 63.17% |
-
 
