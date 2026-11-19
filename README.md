@@ -80,6 +80,7 @@ Comparison of few-shot existing work on PAD-UFES-20 dataset. All accuracy scores
 | Woo et al. [4] | Convnext v2 | 48.60% |
 | Khrulkov et al. [2] | Hyperbolic Image Embeddings | 50.75% |
 | Pani et al. [5] | Few-shot multimodal medical image classification | 63.17% |
+| Proposed Model | Metadata prior + Gini | 75.17% |
 
 
 3-shot results on patient-level split of PAD-UFES-20.
@@ -93,7 +94,11 @@ Comparison of few-shot existing work on PAD-UFES-20 dataset. All accuracy scores
 
 ## References
 [1] Bateni, P., Goyal, R., Masrani, V., Wood, F., & Sigal, L. (2020, June). Improved few-shot visual classification. In 2020 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 14481-14490). IEEE.
+
 [2] Yang, J., Li, C., Dai, X., & Gao, J. (2022). Focal modulation networks. Advances in neural information processing systems, 35, 4203-4217.
+
 [3] Woo, S., Debnath, S., Hu, R., Chen, X., Liu, Z., Kweon, I. S., & Xie, S. (2023, June). Convnext v2: Co-designing and scaling convnets with masked autoencoders. In 2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 16133-16142). Ieee.
+
 [4] Khrulkov, V., Mirvakhabova, L., Ustinova, E., Oseledets, I., & Lempitsky, V. (2020, June). Hyperbolic image embeddings. In 2020 IEEE/CVF conference on computer vision and pattern recognition (CVPR) (pp. 6417-6427). IEEE.
+
 [5] Pani, S., Saha, A., Sinitca, A., Kaplun, D., & Sarkar, R. (2026). Few-Shot Learning based Multimodal Skin Lesion Classification. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (pp. 6303-6312).
